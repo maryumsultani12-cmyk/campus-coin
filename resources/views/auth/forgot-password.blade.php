@@ -1,34 +1,131 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    <div class="forgot-page">
+
+        <!-- LEFT SIDE -->
+        <div class="forgot-left">
+
+            <div class="forgot-brand">
+                <div class="brand-icon">
+                    <i class="fa fa-graduation-cap"></i>
+                </div>
+
+                <span>Campus Coin</span>
+            </div>
+
+            <div class="forgot-content">
+
+                <div class="forgot-icon">
+                    <i class="fa fa-lock"></i>
+                </div>
+
+                <h1>Forgot Your<br>
+                    <span>Password?</span>
+                </h1>
+
+                <p>
+                    Don't worry, it happens to everyone.
+                    Enter your email address and we'll send
+                    you a secure link to reset your password.
+                </p>
+
+            </div>
+
         </div>
 
-        @session('status')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ $value }}
+
+        <!-- RIGHT SIDE -->
+        <div class="forgot-right">
+
+            <div class="forgot-card">
+
+                <div class="mobile-icon">
+                    <i class="fa fa-lock"></i>
+                </div>
+
+                <h2>Reset Your Password</h2>
+
+                <p class="forgot-subtitle">
+                    Enter your email address to receive
+                    a password reset link.
+                </p>
+
+
+                @session('status')
+
+                    <div class="success-message">
+                        <i class="fa fa-check-circle"></i>
+                        {{ $value }}
+                    </div>
+
+                @endsession
+
+
+                <x-validation-errors class="forgot-errors mb-4" />
+
+
+                <form method="POST" action="{{ route('password.email') }}">
+
+                    @csrf
+
+                    <!-- EMAIL -->
+
+                    <div class="forgot-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="forgot-input">
+
+                            <i class="fa fa-envelope"></i>
+
+                            <input
+                                id="email"
+                                type="email"
+                                name="email"
+                                value="{{ old('email') }}"
+                                required
+                                autofocus
+                                autocomplete="username"
+                                placeholder="Enter your email address"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <button type="submit" class="forgot-button">
+
+                        <span>
+                            <i class="fa fa-paper-plane"></i>
+                            Send Reset Link
+                        </span>
+
+                        <i class="fa fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <!-- BACK TO LOGIN -->
+
+                    <a href="{{ route('login') }}" class="back-login">
+
+                        <i class="fa fa-arrow-left"></i>
+
+                        Back to Login
+
+                    </a>
+
+                </form>
+
             </div>
-        @endsession
 
-        <x-validation-errors class="mb-4" />
+        </div>
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+    </div>
 
-            <div class="block">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-authentication-card>
 </x-guest-layout>

@@ -1,60 +1,287 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
 
-        <x-validation-errors class="mb-4" />
+    <div class="campus-page">
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+        <!-- ================= NAVBAR ================= -->
+        
 
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+
+        <!-- ================= REGISTER PAGE ================= -->
+
+        <section class="register-section">
+
+            <!-- HEADING -->
+
+            <div class="register-heading">
+
+                <h1>Join Campus Coin</h1>
+
+                <p>
+                    Start managing your finances for a brighter future!
+                </p>
+
             </div>
 
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
+            <!-- REGISTER CONTENT -->
 
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+            <div class="register-content">
 
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+                <!-- ================= FORM CARD ================= -->
 
-                            <div class="ms-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
-                        </div>
-                    </x-label>
-                </div>
-            @endif
+                <div class="register-card">
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    <x-validation-errors class="mb-4" />
+
+                    <form method="POST" action="{{ route('register') }}">
+
+                        @csrf
+
+
+                        <!-- NAME -->
+
+                        <div class="register-group">
+ <!-- LOGIN / REGISTER TABS -->
+                <div class="login-tabs">
+
+                    
+
+                     <a class="nav-link {{ request()->is('login') ? 'active' : '' }}"
+                    href="{{ route('login') }}" aria-current="page">
+                    <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
+                    <span class="nav-text">login</span>
                 </a>
+<a class="nav-link {{ request()->is('register') ? 'active' : '' }}"
+                    href="{{ route('register') }}" aria-current="page">
+                    <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
+                    <span class="nav-text">register</span>
+                </a>
+                  
 
-                <x-button class="ms-4">
-                    {{ __('Register') }}
-                </x-button>
+                </div>
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <div class="register-input">
+
+                                <i class="fa fa-user"></i>
+
+                                <input
+                                    id="name"
+                                    type="text"
+                                    name="name"
+                                    value="{{ old('name') }}"
+                                    required
+                                    autofocus
+                                    autocomplete="name"
+                                    placeholder="e.g., Alex Johnson"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="register-group">
+
+                            <label for="email">
+                                Campus Email
+                            </label>
+
+                            <div class="register-input">
+
+                                <i class="fa fa-envelope"></i>
+
+                                <input
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    value="{{ old('email') }}"
+                                    required
+                                    autocomplete="username"
+                                    placeholder="e.g., alex.j@university.edu"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="register-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <div class="register-input">
+
+                                <i class="fa fa-lock"></i>
+
+                                <input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    required
+                                    autocomplete="new-password"
+                                    placeholder="Create a secure password"
+                                >
+                                 <i class="fa fa-eye password-eye"
+                               onclick="togglePassword()">
+                            </i>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONFIRM PASSWORD -->
+
+                        <div class="register-group">
+
+                            <label for="password_confirmation">
+                                Confirm Password
+                            </label>
+
+                            <div class="register-input">
+
+                                <i class="fa fa-lock"></i>
+
+                                <input
+                                    id="password_confirmation"
+                                    type="password"
+                                    name="password_confirmation"
+                                    required
+                                    autocomplete="new-password"
+                                    placeholder="Retype your password"
+                                >
+                                 <i class="fa fa-eye password-eye"
+                               onclick="togglePassword()">
+                            </i>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TERMS -->
+
+                        @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+
+                            <div class="terms-box">
+
+                                <input
+                                    type="checkbox"
+                                    name="terms"
+                                    id="terms"
+                                    required
+                                >
+
+                                <label for="terms">
+
+                                    I agree to the
+
+                                    <a
+                                        target="_blank"
+                                        href="{{ route('terms.show') }}"
+                                    >
+                                        Terms of Service
+                                    </a>
+
+                                    and
+
+                                    <a
+                                        target="_blank"
+                                        href="{{ route('policy.show') }}"
+                                    >
+                                        Privacy Policy
+                                    </a>
+
+                                </label>
+
+                            </div>
+
+                        @endif
+
+
+                        <!-- REGISTER BUTTON -->
+
+                        <button
+                            type="submit"
+                            class="register-button"
+                        >
+
+                            <i class="fa fa-check-circle"></i>
+
+                            Create Account
+
+                            <i class="fa fa-arrow-right"></i>
+
+                        </button>
+
+
+                        <!-- LOGIN -->
+
+                        <p class="already-text">
+
+                            Already have an account?
+
+                            <a href="{{ route('login') }}">
+                                Log in
+                            </a>
+
+                        </p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- ================= RIGHT IMAGE ================= -->
+
+                <div class="register-image-area">
+
+                    <div class="speech-bubble">
+                        It only takes a minute
+                        <br>
+                        to get started!
+                    </div>
+
+                   <div class="img"></div>
+
+                </div>
+
             </div>
-        </form>
-    </x-authentication-card>
+
+        </section>
+
+
+      
+
+
+    </div>
+ <script>
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById('password');
+
+            if (password.type === 'password') {
+
+                password.type = 'text';
+
+            } else {
+
+                password.type = 'password';
+
+            }
+
+        }
+
+    </script>
 </x-guest-layout>
