@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('google_id')->nullable();
             $table->string('academic_year', 2048)->nullable();
              $table->string('monthly_saving_goal', 2048)->nullable();
+            $table->string('academic_year')->nullable();
+            $table->decimal('monthly_savings_goal', 10, 2)->default(0);
+            $table->string('role')->default('user');
             $table->timestamps();
         });
 

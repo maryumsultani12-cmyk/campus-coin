@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <link rel="stylesheet" href="{{ asset('custom-assets/css/style.css') }}">
 
     <div class="forgot-page">
 
@@ -6,9 +7,7 @@
         <div class="forgot-left">
 
             <div class="forgot-brand">
-                <div class="brand-icon">
-                    <i class="fa fa-graduation-cap"></i>
-                </div>
+              
 
                 <span>Campus Coin</span>
             </div>
@@ -53,10 +52,10 @@
 
                 @session('status')
 
-                    <div class="success-message">
-                        <i class="fa fa-check-circle"></i>
-                        {{ $value }}
-                    </div>
+                <div class="success-message">
+                    <i class="fa fa-check-circle"></i>
+                    {{ $value }}
+                </div>
 
                 @endsession
 
@@ -80,16 +79,8 @@
 
                             <i class="fa fa-envelope"></i>
 
-                            <input
-                                id="email"
-                                type="email"
-                                name="email"
-                                value="{{ old('email') }}"
-                                required
-                                autofocus
-                                autocomplete="username"
-                                placeholder="Enter your email address"
-                            >
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
+                                autocomplete="username" placeholder="Enter your email address">
 
                         </div>
 

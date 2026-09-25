@@ -1,13 +1,14 @@
 <x-guest-layout>
+  <link rel="stylesheet" href="{{ asset('custom-assets/css/style.css') }}">
 
     <div class="verification-page">
 
         <div class="verification-card">
 
             <!-- Logo -->
-            <div class="verification-logo">
+            <!-- <div>
                 <x-authentication-card-logo />
-            </div>
+            </div> -->
 
             <!-- Icon -->
             <div class="verification-icon">

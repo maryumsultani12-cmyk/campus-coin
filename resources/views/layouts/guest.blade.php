@@ -7,27 +7,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-<!-- bootsrapt-->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <!-- icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite(['resources/js/app.js'])
 
     @livewireStyles
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-      
 </head>
 
 <body>
-    <div class="font-sans text-gray-900 antialiased">
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 
     @livewireScripts
 </body>

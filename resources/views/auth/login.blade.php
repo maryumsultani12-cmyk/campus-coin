@@ -1,31 +1,50 @@
 <x-guest-layout>
+    <link rel="stylesheet" href="{{ asset('custom-assets/css/style.css') }}">
 
     <div class="campus-login-page">
 
+
+
+
+
         <!-- LEFT IMAGE SECTION -->
-        <div class="login-image">
+        <!-- LEFT IMAGE SECTION -->
+<div class="login-image">
 
-           <div class="img ">
+    <!-- LOGO TOP LEFT -->
+    <div class="top-logo">
+        <img
+            src="{{ asset('custom-assets/images/logo.png') }}"
+            alt="Campus Coin Logo"
+            
+        >
+          <div class="logo-text">
+        <strong>Campus <span>Coin</span></strong>
+    </div>
 
-            <div class="image-overlay">
-                <div class="campus-logo">
-                    <i class="fa fa-graduation-cap"></i>
-                    <span>Campus <b>Coin</b></span>
-                </div>
+        
+    </div>
 
-                <h1>
-                    Secure Access<br>
-                    to Your Financial<br>
-                    <span>Future.</span>
-                </h1>
+    <!-- STUDENT IMAGE + TEXT -->
+    <div class="img">
 
-                <p>
-                    Smart Spending. Student Style.
-                </p>
-            </div>
-</div>
+        <div class="image-overlay">
+
+            <h1>
+                Secure Access<br>
+                to Your Financial<br>
+                <span>Future.</span>
+            </h1>
+
+            <p>
+                Smart Spending. Student Style.
+            </p>
+
         </div>
 
+    </div>
+
+</div>
 
         <!-- RIGHT LOGIN SECTION -->
         <div class="login-area">
@@ -44,25 +63,22 @@
                 <x-validation-errors class="mb-4" />
 
                 @session('status')
-                    <div class="status-message">
-                        {{ $value }}
-                    </div>
+                <div class="status-message">
+                    {{ $value }}
+                </div>
                 @endsession
 
 
                 <!-- LOGIN / REGISTER TABS -->
                 <div class="login-tabs">
 
-                  <a class="nav-link {{ request()->is('login') ? 'active' : '' }}"
-                    href="{{ route('login') }}" aria-current="page">
-                    <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
-                    <span class="nav-text">login</span>
-                </a>
-<a class="nav-link {{ request()->is('register') ? 'active' : '' }}"
-                    href="{{ route('register') }}" aria-current="page">
-                    <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
-                    <span class="nav-text">register</span>
-                </a>
+                    <span class="active">
+                        Login
+                    </span>
+
+                    <a href="{{ route('register') }}">
+                        Register
+                    </a>
 
                 </div>
 
@@ -82,16 +98,8 @@
 
                             <i class="fa fa-envelope"></i>
 
-                            <input
-                                id="email"
-                                type="email"
-                                name="email"
-                                value="{{ old('email') }}"
-                                required
-                                autofocus
-                                autocomplete="username"
-                                placeholder="Email Address"
-                            >
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
+                                autocomplete="username" placeholder="Email Address">
 
                         </div>
 
@@ -109,17 +117,10 @@
 
                             <i class="fa fa-lock"></i>
 
-                            <input
-                                id="password"
-                                type="password"
-                                name="password"
-                                required
-                                autocomplete="current-password"
-                                placeholder="Password"
-                            >
+                            <input id="password" type="password" name="password" required
+                                autocomplete="current-password" placeholder="Password">
 
-                            <i class="fa fa-eye password-eye"
-                               onclick="togglePassword()">
+                            <i class="fa fa-eye password-eye" onclick="togglePassword()">
                             </i>
 
                         </div>
@@ -131,19 +132,16 @@
                     <div class="forgot-row">
 
                         <label>
-                            <input
-                                type="checkbox"
-                                name="remember"
-                            >
+                            <input type="checkbox" name="remember">
 
                             Remember me
                         </label>
 
                         @if (Route::has('password.request'))
 
-                            <a href="{{ route('password.request') }}">
-                                Forgot Password?
-                            </a>
+                        <a href="{{ route('password.request') }}">
+                            Forgot Password?
+                        </a>
 
                         @endif
 
@@ -151,10 +149,7 @@
 
 
                     <!-- LOGIN BUTTON -->
-                    <button
-                        type="submit"
-                        class="login-button"
-                    >
+                    <button type="submit" class="login-button">
                         Login
                     </button>
 
@@ -174,17 +169,15 @@
 
 
                 <!-- GOOGLE LOGIN -->
-              <a href="/auth/google" class="google-login">
+                <a href="/auth/google" class="google-login">
 
-    <img 
-        src="{{ Vite::asset('resources/image/google-icon.png') }}" 
-        alt="Google"
-    >
+                    <img src="{{ Vite::asset('resources/image/google-icon.png') }}" alt="Google">
 
-    
-        Continue with Google
-    
-</a>
+                    <span>
+                        Continue with Google
+                    </span>
+
+                </a>
 
 
                 <!-- REGISTER -->
@@ -206,24 +199,22 @@
 
 
     <script>
+    function togglePassword() {
 
-        function togglePassword() {
+        const password =
+            document.getElementById('password');
 
-            const password =
-                document.getElementById('password');
+        if (password.type === 'password') {
 
-            if (password.type === 'password') {
+            password.type = 'text';
 
-                password.type = 'text';
+        } else {
 
-            } else {
-
-                password.type = 'password';
-
-            }
+            password.type = 'password';
 
         }
 
+    }
     </script>
 
 </x-guest-layout>

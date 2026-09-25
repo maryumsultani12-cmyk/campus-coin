@@ -1,4 +1,5 @@
 <x-guest-layout>
+  <link rel="stylesheet" href="{{ asset('custom-assets/css/style.css') }}">
 
     <div class="confirm-page">
 
