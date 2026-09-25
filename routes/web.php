@@ -6,17 +6,36 @@ use App\Http\Controllers\AdminController;
 
 // ==================== ADMIN ROUTES ====================
 
-Route::get('/admin-panel/index', function () {
-    return view('admin-panel.index');
-});
+Route::get('/admin-panel/index', [AdminController::class, 'index'])
+    ->name('admin.dashboard');
 
 Route::get('/admin-panel/announcements', function () {
     return view('admin-panel.announcements');
 });
 
-Route::get('/admin-panel/category-management', function () {
-    return view('admin-panel.category-management');
-});
+Route::get('/admin-panel/categories/{id}/edit', [adminController::class, 'editCategory'])
+    ->name('admin.categories.edit');
+Route::put('/admin-panel/categories/{id}', [adminController::class, 'updateCategory'])
+    ->name('admin.categories.update');
+Route::get('/admin-panel/category-management', [AdminController::class, 'categories'])
+    ->name('admin.categories');
+Route::post('/admin-panel/category-management', [AdminController::class, 'storeCategory'])
+    ->name('admin.categories.store');
+Route::delete('/admin-panel/categories/{id}', [adminController::class, 'deleteCategory'])
+    ->name('admin.categories.delete');
+
+Route::post('/admin-panel/announcements', [adminController::class, 'storeAnnouncement'])
+    ->name('admin.announcements.store');
+Route::get('/admin-panel/announcements', [adminController::class, 'announcements'])
+    ->name('admin.announcements');
+Route::get('/admin-panel/announcements/{id}/edit', [adminController::class, 'editAnnouncement'])
+    ->name('admin.announcements.edit');
+Route::put('/admin-panel/announcements/{id}', [adminController::class, 'updateAnnouncement'])
+    ->name('admin.announcements.update');
+Route::delete('/admin-panel/announcements/{id}', [adminController::class, 'deleteAnnouncement'])
+    ->name('admin.announcements.delete');
+
+
 
 Route::get('/admin-panel/register', function () {
     return view('admin-panel.register');
@@ -32,12 +51,13 @@ Route::get('/admin-panel/profile', function () {
     return view('admin-panel.profile');
 });
 
-Route::post('deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
-
+// Route::post('deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
+Route::post('/admin-panel/users/{id}/disable', [AdminController::class, 'disableUser'])
+    ->name('admin.user.disable');
 Route::post('makeAdmin', [AdminController::class, 'makeAdmin'])->name('makeAdmin');
 
-Route::post('/admin-panel/users/{id}', [AdminController::class, 'showUser'])->name('showUser');
-
+Route::get('/admin-panel/users/{id}', [AdminController::class, 'viewUser'])
+    ->name('admin.user.view');
 
 // ==================== USER ROUTES ====================
 
@@ -111,7 +131,7 @@ Route::get('/user/reports/six-month', function () {
     return view('user.reports.six-month');
 });
 
-// Saving Tips / Insights
+// Insights
 Route::get('/user/insights/index', function () {
     return view('user.insights.index');
 });

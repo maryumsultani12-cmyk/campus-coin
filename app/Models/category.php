@@ -2,28 +2,24 @@
 
 namespace App\Models;
 
+use App\Models\User;
+use App\Models\Transaction;
+use App\Models\Budget;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-
-class Transaction extends Model
+class category extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'category_id',
-        'amount',
+        'name',
         'type',
-        'description',
-        'date',
-        'is_recurring',
-        'ai_suggested_category',
+        'is_default',
     ];
     protected $casts = [
-        'amount' => 'decimal:2',
-        'date' => 'date',
-        'is_recurring' => 'boolean',
+        'is_default' => 'boolean',
     ];
 
     public function user()
@@ -31,8 +27,14 @@ class Transaction extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function category()
+
+    public function transactions()
     {
-        return $this->belongsTo(category::class);
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function budgets()
+    {
+        return $this->hasMany(Budget::class);
     }
 }

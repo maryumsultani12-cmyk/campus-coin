@@ -131,32 +131,32 @@
                         <tbody>
                             @foreach ($users as $user)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td><img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}"
-                                            class="rounded-circle"></td>
-                                    <td>{{ $user->created_at->format('d M, Y') }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <form action="{{ route('showUser') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $user->id }}">
-                                            <button type="submit" class="btn btn-icon"><i class="bi bi-eye"></i></button>
-                                        </form>
-                                        <form action="{{ route('deleteUser') }}" method="POST" class="delete-form"
-                                            style="display:inline;">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $user->id }}">
-                                            <button type="submit" class="btn btn-icon"><i
-                                                    class="bi bi-trash"></i></button>
-                                        </form>
-                                        @if ($user->role === 'admin')
-                                            <span class="badge bg-success py-2 px-3">Admin</span>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle me-2 bg-primary">
+                                                {{ strtoupper(substr($user->name, 0, 2)) }}</div>
+                                            {{ $user->name }}
+                                        </div>
+                                    </td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->created_at->format('M d, Y') }}</td>
+                                    <td>
+                                        @if ($user->status === 'active')
+                                            <span class="badge badge-soft-success rounded-pill px-3 py-1">Active</span>
                                         @else
-                                            <form action="{{ route('admin-panel.users.makeAdmin') }}" method="POST">
-                                                @csrf<button type="submit" class="btn btn-sm btn-warning">Make
-                                                    Admin</button>
+                                            <span class="badge badge-soft-danger rounded-pill px-3 py-1">Disabled</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.user.view', $user->id) }}" class="btn btn-sm btn-link text-decoration-none">View</a>
+                                        @if ($user->status === 'active')
+                                            <form action="{{ route('admin.user.disable', $user->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm btn-link text-danger text-decoration-none">Disable</button>
                                             </form>
+                                        @else
+                                            <span class="text-muted ms-2">Disabled</span>
                                         @endif
                                     </td>
                                 </tr>
@@ -208,4 +208,4 @@
             </div>
         </div>
     </div>
- @endsection
+@endsection

@@ -9,20 +9,20 @@
     <meta name="author" content="" />
     <title>Fan hub plus </title>
     <!-- loader -->
-    <link href="{{ asset('custom-assets/css/pace.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('custom-assets/js/pace.min.js') }}"></script> <!-- favicon -->
-    <link rel="icon" href="{{ asset('custom-assets/images/favicon.ico') }}" type="image/x-icon"> <!-- Vector CSS -->
-    <link href="{{ asset('custom-assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+    <link href="{{ asset('../custom-assets/css/pace.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('../custom-assets/js/pace.min.js') }}"></script> <!-- favicon -->
+    <link rel="icon" href="{{ asset('../custom-assets/images/favicon.ico') }}" type="image/x-icon"> <!-- Vector CSS -->
+    <link href="{{ asset('../custom-assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <!-- Full Calendar CSS -->
-    <link href="{{ asset('custom-assets/plugins/fullcalendar/css/fullcalendar.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('../custom-assets/plugins/fullcalendar/css/fullcalendar.min.css') }}" rel="stylesheet" />
     <!-- simplebar CSS -->
-    <link href="{{ asset('custom-assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('../custom-assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('custom-assets/css/bootstrap.min.css') }}" rel="stylesheet" /> <!-- animate CSS -->
-    <link href="{{ asset('custom-assets/css/animate.css') }}" rel="stylesheet" /> <!-- Icons CSS -->
-    <link href="{{ asset('custom-assets/css/icons.css') }}" rel="stylesheet" /> <!-- Sidebar CSS -->
-    <link href="{{ asset('custom-assets/css/sidebar-menu.css') }}" rel="stylesheet" /> <!-- Custom Style -->
-    <link href="{{ asset('custom-assets/css/app-style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('../custom-assets/css/bootstrap.min.css') }}" rel="stylesheet" /> <!-- animate CSS -->
+    <link href="{{ asset('../custom-assets/css/animate.css') }}" rel="stylesheet" /> <!-- Icons CSS -->
+    <link href="{{ asset('../custom-assets/css/icons.css') }}" rel="stylesheet" /> <!-- Sidebar CSS -->
+    <link href="{{ asset('../custom-assets/css/sidebar-menu.css') }}" rel="stylesheet" /> <!-- Custom Style -->
+    <link href="{{ asset('../custom-assets/css/app-style.css') }}" rel="stylesheet" />
 
 
 </head>
@@ -74,8 +74,8 @@
                 </li>
 
                 <li>
-                    <a href="/admin-panel/profile">
-                        <i class="zmdi zmdi-face"></i> <span>Profile</span>
+                    <a href="{{ route('profile.show') }}">
+                        Profile
                     </a>
                 </li>
 
@@ -122,10 +122,11 @@
                 </ul>
 
                 <ul class="navbar-nav align-items-center right-nav-link">
-                  
-                   
+
+
                     <li class="nav-item">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown"
+                            href="#">
                             <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle"
                                     alt="user avatar"></span>
                         </a>
@@ -209,32 +210,32 @@
     <!--End wrapper-->
 
     <!-- Bootstrap core JavaScript -->
-<script src="{{ asset('custom-assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('custom-assets/js/popper.min.js') }}"></script>
-<script src="{{ asset('custom-assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('../custom-assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('../custom-assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('../custom-assets/js/bootstrap.min.js') }}"></script>
 
-<!-- Full Calendar -->
-<script src="{{ asset('custom-assets/plugins/fullcalendar/js/moment.min.js') }}"></script>
-<script src="{{ asset('custom-assets/plugins/fullcalendar/js/fullcalendar.min.js') }}"></script>
-<script src="{{ asset('custom-assets/plugins/fullcalendar/js/fullcalendar-custom-script.js') }}"></script>
+    <!-- Full Calendar -->
+    <script src="{{ asset('../custom-assets/plugins/fullcalendar/js/moment.min.js') }}"></script>
+    <script src="{{ asset('../custom-assets/plugins/fullcalendar/js/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('../custom-assets/plugins/fullcalendar/js/fullcalendar-custom-script.js') }}"></script>
 
-<!-- simplebar -->
-<script src="{{ asset('custom-assets/plugins/simplebar/js/simplebar.js') }}"></script>
+    <!-- simplebar -->
+    <script src="{{ asset('../custom-assets/plugins/simplebar/js/simplebar.js') }}"></script>
 
-<!-- sidebar-menu -->
-<script src="{{ asset('custom-assets/js/sidebar-menu.js') }}"></script>
+    <!-- sidebar-menu -->
+    <script src="{{ asset('../custom-assets/js/sidebar-menu.js') }}"></script>
 
-<!-- loader -->
-<script src="{{ asset('custom-assets/js/jquery.loading-indicator.js') }}"></script>
+    <!-- loader -->
+    <script src="{{ asset('../custom-assets/js/jquery.loading-indicator.js') }}"></script>
 
-<!-- Custom scripts -->
-<script src="{{ asset('custom-assets/js/app-script.js') }}"></script>
+    <!-- Custom scripts -->
+    <script src="{{ asset('../custom-assets/js/app-script.js') }}"></script>
 
-<!-- Chart -->
-<script src="{{ asset('custom-assets/plugins/Chart.js/Chart.min.js') }}"></script>
+    <!-- Chart -->
+    <script src="{{ asset('../custom-assets/plugins/Chart.js/Chart.min.js') }}"></script>
 
-<!-- Index -->
-<script src="{{ asset('custom-assets/js/index.js') }}"></script>
+    <!-- Index -->
+    <script src="{{ asset('../custom-assets/js/index.js') }}"></script>
 
 
 </body>
