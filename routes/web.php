@@ -4,61 +4,28 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
 
-// ==================== ADMIN ROUTES ====================
+// ==================== ADMIN PANEL ==================== 
 
-Route::get('/admin-panel/index', [AdminController::class, 'index'])
-    ->name('admin.dashboard');
+Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home');
 
-Route::get('/admin-panel/announcements', function () {
-    return view('admin-panel.announcements');
-});
+Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+Route::get('/users/{user}', [AdminController::class, 'showUser'])->name('admin.users.show');
+Route::patch('/users/{user}/status', [AdminController::class, 'toggleUserStatus'])->name('admin.users.toggle-status');
+Route::post('/users/{user}/reset-password', [AdminController::class, 'resetUserPassword'])->name('admin.users.reset-password');
+Route::patch('/users/{user}/role', [AdminController::class, 'toggleUserRole'])->name('admin.users.toggle-role');
 
-Route::get('/admin-panel/categories/{id}/edit', [adminController::class, 'editCategory'])
-    ->name('admin.categories.edit');
-Route::put('/admin-panel/categories/{id}', [adminController::class, 'updateCategory'])
-    ->name('admin.categories.update');
-Route::get('/admin-panel/category-management', [AdminController::class, 'categories'])
-    ->name('admin.categories');
-Route::post('/admin-panel/category-management', [AdminController::class, 'storeCategory'])
-    ->name('admin.categories.store');
-Route::delete('/admin-panel/categories/{id}', [adminController::class, 'deleteCategory'])
-    ->name('admin.categories.delete');
+Route::get('/categories', [AdminController::class, 'categories'])->name('admin.categories');
+Route::post('/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');
+Route::get('/categories/{category}/edit', [AdminController::class, 'editCategory'])->name('admin.categories.edit');
+Route::put('/categories/{category}', [AdminController::class, 'updateCategory'])->name('admin.categories.update');
+Route::delete('/categories/{category}', [AdminController::class, 'destroyCategory'])->name('admin.categories.destroy');
 
-Route::post('/admin-panel/announcements', [adminController::class, 'storeAnnouncement'])
-    ->name('admin.announcements.store');
-Route::get('/admin-panel/announcements', [adminController::class, 'announcements'])
-    ->name('admin.announcements');
-Route::get('/admin-panel/announcements/{id}/edit', [adminController::class, 'editAnnouncement'])
-    ->name('admin.announcements.edit');
-Route::put('/admin-panel/announcements/{id}', [adminController::class, 'updateAnnouncement'])
-    ->name('admin.announcements.update');
-Route::delete('/admin-panel/announcements/{id}', [adminController::class, 'deleteAnnouncement'])
-    ->name('admin.announcements.delete');
-
-
-
-Route::get('/admin-panel/register', function () {
-    return view('admin-panel.register');
-});
-
-Route::get('/admin-panel/settings', function () {
-    return view('admin-panel.settings');
-});
-
-Route::get('/admin-panel/users', [AdminController::class, 'users'])->name('users');
-
-Route::get('/admin-panel/profile', function () {
-    return view('admin-panel.profile');
-});
-
-// Route::post('deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
-Route::post('/admin-panel/users/{id}/disable', [AdminController::class, 'disableUser'])
-    ->name('admin.user.disable');
-Route::post('makeAdmin', [AdminController::class, 'makeAdmin'])->name('makeAdmin');
-
-Route::get('/admin-panel/users/{id}', [AdminController::class, 'viewUser'])
-    ->name('admin.user.view');
-
+Route::get('/announcements', [AdminController::class, 'announcements'])->name('admin.announcements');
+Route::post('/announcements', [AdminController::class, 'storeAnnouncement'])->name('admin.announcements.store');
+Route::get('/announcements/{announcement}/edit', [AdminController::class, 'editAnnouncement'])->name('admin.announcements.edit');
+Route::put('/announcements/{announcement}', [AdminController::class, 'updateAnnouncement'])->name('admin.announcements.update');
+Route::delete('/announcements/{announcement}', [AdminController::class, 'destroyAnnouncement'])->name('admin.announcements.destroy');
 // ==================== USER ROUTES ====================
 
 Route::get('/user/dashboard', function () {
