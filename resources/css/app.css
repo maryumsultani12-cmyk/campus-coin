@@ -4654,4 +4654,46 @@
     height: 100%;
     min-height: 600px;
 }
+/* ================= CAMPUS COIN LOGO ================= */
 
+.campus-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #5865f2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.25);
+}
+
+.logo-icon span {
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.logo-main {
+    color: #172033;
+}
+
+.logo-coin {
+    color: #5865f2;
+}

@@ -15,11 +15,13 @@
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <!-- Styles -->
     @livewireStyles
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+      
 </head>
 
 <body>
