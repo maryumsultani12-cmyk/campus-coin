@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('category_id');
-            $table->decimal('amount');
-             $table->string('type');
-             $table->string('description');
-             $table->date('date');
-            $table->string('is_recurring');
-            $table->string('ai_suggested_category');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->decimal('amount', 10, 2);
+            $table->enum('type', ['income', 'expense']);
+            $table->text('description')->nullable();
+            $table->date('date');
+            $table->boolean('is_recurring')->default(false);
+            $table->string('ai_suggested_category')->nullable();
             $table->timestamps();
         });
     }

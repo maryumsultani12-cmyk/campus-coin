@@ -20,6 +20,9 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('academic_year')->nullable();
+            $table->decimal('monthly_savings_goal', 10, 2)->default(0);
+            $table->string('role')->default('user');
             $table->timestamps();
         });
 

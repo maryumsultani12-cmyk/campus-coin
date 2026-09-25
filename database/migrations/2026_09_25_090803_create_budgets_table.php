@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('insights', function (Blueprint $table) {
+        Schema::create('budgets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('month');
-            $table->text('summary_text');
-            $table->text('tip_text');
-            $table->timestamp('generated_at')->nullable();
+            $table->decimal('limit_amount', 10, 2);
             $table->timestamps();
+            $table->unique(['user_id', 'category_id', 'month']);
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('insights');
+        Schema::dropIfExists('budgets');
     }
 };
