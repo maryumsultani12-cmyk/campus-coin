@@ -2,43 +2,86 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-//ADNIN ROUTES
-Route::get('/', function () {
-    return view('admin-panel.index');
+Route::get('/user/dashboard', function () {
+    return view('user.dashboard');
 });
 
-Route::get('/admin-panel/calendar' , function () {
-    return view('.admin-panel.calendar');
+// Income
+Route::get('/user/income/index', function () {
+    return view('user.income.index');
 });
 
-Route::get('/admin-panel/forms' , function () {
-    return view('admin-panel.forms');
+Route::get('/user/income/create', function () {
+    return view('user.income.create');
 });
 
-Route::get('/admin-panel/icons' , function () {
-    return view('admin-panel.icons');
+Route::get('/user/income/edit/{id}', function ($id) {
+    return view('user.income.edit', compact('id'));
 });
 
-Route::get('/admin-panel/login' , function () {
-    return view('admin-panel.login');
+// Expense
+Route::get('/user/expense/index', function () {
+    return view('user.expenses.index');
 });
 
-Route::get('/admin-panel/profile' , function () {
-    return view('admin-panel.profile');
+Route::get('/user/expense/create', function () {
+    return view('user.expenses.create');
 });
 
-Route::get('/admin-panel/register' , function () {
-    return view('admin-panel.register');
+Route::get('/user/expense/edit/{id}', function ($id) {
+    return view('user.expenses.edit', compact('id'));
 });
 
-Route::get('/admin-panel/reset-password' , function () {
-    return view('admin-panel.reset-password');
+// Transactions
+Route::get('/user/transactions/index', function () {
+    return view('user.transactions.index');
 });
 
-Route::get('/admin-panel/tables' , function () {
-    return view('admin-panel.tables');
+// Budgets
+Route::get('/user/budgets/index', function () {
+    return view('user.budgets.index');
 });
+
+Route::get('/user/budgets/create', function () {
+    return view('user.budgets.create');
+});
+
+Route::get('/user/budgets/edit/{id}', function ($id) {
+    return view('user.budgets.edit', compact('id'));
+});
+
+// Categories
+Route::get('/user/categories/index', function () {
+    return view('user.categories.index');
+});
+
+Route::get('/user/categories/create', function () {
+    return view('user.categories.create');
+});
+
+// Reports
+Route::get('/user/reports/index', function () {
+    return view('user.reports.index');
+});
+
+Route::get('/user/reports/month', function () {
+    return view('user.reports.month');
+});
+
+Route::get('/user/reports/six-month', function () {
+    return view('user.reports.six-month');
+});
+
+// Saving Tips
+Route::get('/user/insights/index', function () {
+    return view('user.insights.index');
+});
+
+// Profile
+Route::get('/user/profile/index', function () {
+    return view('user.profile.index');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
