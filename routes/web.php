@@ -27,41 +27,28 @@ Route::post('/logout', [LoginResponse::class, 'Logout'])
 use App\Http\Controllers\AdminController;
 
 
-// ==================== ADMIN ROUTES ====================
+// ==================== ADMIN PANEL ==================== 
 
-Route::get('/admin-panel/index', function () {
-    return view('admin-panel.index');
-});
+Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home');
 
-Route::get('/admin-panel/announcements', function () {
-    return view('admin-panel.announcements');
-});
+Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+Route::get('/users/{user}', [AdminController::class, 'showUser'])->name('admin.users.show');
+Route::patch('/users/{user}/status', [AdminController::class, 'toggleUserStatus'])->name('admin.users.toggle-status');
+Route::post('/users/{user}/reset-password', [AdminController::class, 'resetUserPassword'])->name('admin.users.reset-password');
+Route::patch('/users/{user}/role', [AdminController::class, 'toggleUserRole'])->name('admin.users.toggle-role');
 
-Route::get('/admin-panel/category-management', function () {
-    return view('admin-panel.category-management');
-});
+Route::get('/categories', [AdminController::class, 'categories'])->name('admin.categories');
+Route::post('/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');
+Route::get('/categories/{category}/edit', [AdminController::class, 'editCategory'])->name('admin.categories.edit');
+Route::put('/categories/{category}', [AdminController::class, 'updateCategory'])->name('admin.categories.update');
+Route::delete('/categories/{category}', [AdminController::class, 'destroyCategory'])->name('admin.categories.destroy');
 
-Route::get('/admin-panel/register', function () {
-    return view('admin-panel.register');
-});
-
-Route::get('/admin-panel/settings', function () {
-    return view('admin-panel.settings');
-});
-
-Route::get('/admin-panel/users', [AdminController::class, 'users'])->name('users');
-
-Route::get('/admin-panel/profile', function () {
-    return view('admin-panel.profile');
-});
-
-Route::post('deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
-
-Route::post('makeAdmin', [AdminController::class, 'makeAdmin'])->name('makeAdmin');
-
-Route::post('/admin-panel/users/{id}', [AdminController::class, 'showUser'])->name('showUser');
-
-
+Route::get('/announcements', [AdminController::class, 'announcements'])->name('admin.announcements');
+Route::post('/announcements', [AdminController::class, 'storeAnnouncement'])->name('admin.announcements.store');
+Route::get('/announcements/{announcement}/edit', [AdminController::class, 'editAnnouncement'])->name('admin.announcements.edit');
+Route::put('/announcements/{announcement}', [AdminController::class, 'updateAnnouncement'])->name('admin.announcements.update');
+Route::delete('/announcements/{announcement}', [AdminController::class, 'destroyAnnouncement'])->name('admin.announcements.destroy');
 // ==================== USER ROUTES ====================
 
 Route::get('/user/dashboard', function () {
@@ -134,7 +121,7 @@ Route::get('/user/reports/six-month', function () {
     return view('user.reports.six-month');
 });
 
-// Saving Tips / Insights
+// Insights
 Route::get('/user/insights/index', function () {
     return view('user.insights.index');
 });
@@ -165,8 +152,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+<<<<<<< HEAD
 // Google Authentication
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
+=======
+>>>>>>> 792ef72abe5830b024368bd11af6c89a82189853

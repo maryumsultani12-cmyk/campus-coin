@@ -10,6 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Category;
+use App\Models\Transaction;
+use App\Models\Budget;
+use App\Models\Insight;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -27,11 +31,36 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
+
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'academic_year',
+        'monthly_savings_goal',
+        'role',
+        'status',
     ];
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function budgets()
+    {
+        return $this->hasMany(Budget::class);
+    }
+
+    public function insights()
+    {
+        return $this->hasMany(Insight::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
