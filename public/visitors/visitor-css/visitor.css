@@ -1,0 +1,561 @@
+
+:root {
+    --cc-black: #0e0d0c;
+    --cc-black-soft: #17150f;
+    --cc-cream: #f4efe5;
+    --cc-cream-soft: #efe9dc;
+    --cc-gold: #d3ab6a;
+    --cc-gold-deep: #b9925a;
+    --cc-text-dark: #1e1c18;
+    --cc-text-muted: #6c6558;
+    --cc-text-light: #f4efe5;
+    --cc-text-light-muted: #cfc8b8;
+    --cc-border-light: rgba(244, 239, 229, 0.16);
+    --cc-border-dark: rgba(30, 28, 24, 0.12);
+
+    --cc-font-heading: 'Fraunces', Georgia, serif;
+    --cc-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --cc-radius: 14px;
+    --cc-radius-sm: 8px;
+}
+
+/* -----------------------------------------------------------------
+   Base helpers
+----------------------------------------------------------------- */
+.cc-eyebrow {
+    font-family: var(--cc-font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--cc-gold);
+    margin-bottom: 0.85rem;
+}
+
+.cc-eyebrow-dark {
+    color: var(--cc-gold-deep);
+}
+
+.cc-heading-light,
+.cc-heading-dark {
+    font-family: var(--cc-font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 1.1rem;
+    font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+}
+
+.cc-heading-light {
+    color: var(--cc-text-light);
+}
+
+.cc-heading-dark {
+    color: var(--cc-text-dark);
+}
+
+.cc-text-muted {
+    font-family: var(--cc-font-body);
+    color: var(--cc-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+    max-width: 34rem;
+}
+
+.cc-hero-text {
+    font-family: var(--cc-font-body);
+    color: var(--cc-text-light-muted);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+    max-width: 30rem;
+}
+
+/* Buttons */
+.cc-btn-primary,
+.cc-btn-outline,
+.cc-btn-dark {
+    font-family: var(--cc-font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.cc-btn-primary {
+    background-color: var(--cc-gold);
+    color: var(--cc-black);
+    border: 1px solid var(--cc-gold);
+}
+
+.cc-btn-primary:hover {
+    background-color: var(--cc-gold-deep);
+    color: var(--cc-black);
+    transform: translateY(-1px);
+}
+
+.cc-btn-outline {
+    background-color: transparent;
+    color: var(--cc-text-dark);
+    border: 1px solid var(--cc-border-dark);
+}
+
+.cc-btn-outline:hover {
+    background-color: var(--cc-text-dark);
+    color: var(--cc-cream);
+    transform: translateY(-1px);
+}
+
+.cc-btn-dark {
+    background-color: var(--cc-black);
+    color: var(--cc-cream);
+    border: 1px solid var(--cc-black);
+}
+
+.cc-btn-dark:hover {
+    background-color: var(--cc-black-soft);
+    color: var(--cc-cream);
+    transform: translateY(-1px);
+}
+
+
+.cc-hero-bg,
+.cc-img-square,
+.cc-vault-bg,
+.cc-how-bg,
+.cc-final-img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* -----------------------------------------------------------------
+   1. HERO
+----------------------------------------------------------------- */
+.cc-hero {
+    position: relative;
+    background-color: var(--cc-black);
+    padding: 7rem 0 4rem;
+    overflow: hidden;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+}
+
+.cc-hero-bg {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    border-radius: 0;
+    z-index: 0;
+}
+
+.cc-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(14, 13, 12, 0.92) 0%, rgba(14, 13, 12, 0.55) 55%, rgba(14, 13, 12, 0.2) 100%);
+    z-index: 1;
+}
+
+.cc-hero .container {
+    z-index: 2;
+}
+
+.cc-hero-title {
+    font-family: var(--cc-font-heading);
+    font-weight: 600;
+    color: var(--cc-text-light);
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+}
+
+.cc-hero-title .cc-gold-word {
+    color: var(--cc-gold);
+}
+
+.cc-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+}
+
+.cc-hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--cc-font-body);
+    font-size: 0.85rem;
+    color: var(--cc-text-light-muted);
+}
+
+.cc-hero-badge i {
+    color: var(--cc-gold);
+    font-size: 1rem;
+}
+
+/* -----------------------------------------------------------------
+   2. PROBLEM + 4. MONEY MAP (shared light section)
+----------------------------------------------------------------- */
+.cc-section {
+    padding: 5.5rem 0;
+}
+
+.cc-section-light {
+    background-color: var(--cc-cream);
+}
+
+.cc-img-square {
+    height: 260px;
+    border-radius: var(--cc-radius);
+}
+
+.cc-stat-label {
+    font-family: var(--cc-font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--cc-text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.cc-stat-number {
+    font-family: var(--cc-font-heading);
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--cc-text-dark);
+    margin-bottom: 0.2rem;
+}
+
+.cc-stat-desc {
+    font-family: var(--cc-font-body);
+    color: var(--cc-text-muted);
+    font-size: 0.9rem;
+    max-width: 14rem;
+}
+
+.cc-divider {
+    border: none;
+    border-top: 1px solid var(--cc-border-dark);
+    margin: 1.25rem 0;
+}
+
+/* -----------------------------------------------------------------
+   3. THE VAULT / FEATURES
+----------------------------------------------------------------- */
+.cc-vault {
+    position: relative;
+    background-color: var(--cc-black);
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+.cc-vault-bg {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    border-radius: 0;
+    z-index: 0;
+}
+
+.cc-vault-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(14, 13, 12, 0.95) 0%, rgba(14, 13, 12, 0.65) 60%, rgba(14, 13, 12, 0.35) 100%);
+    z-index: 1;
+}
+
+.cc-vault .container {
+    z-index: 2;
+    position: relative;
+}
+
+.cc-feature-card {
+    background-color: rgba(244, 239, 229, 0.05);
+    border: 1px solid var(--cc-border-light);
+    border-radius: var(--cc-radius);
+    padding: 1.5rem 1.25rem;
+    height: 100%;
+    text-align: left;
+}
+
+.cc-feature-card i {
+    font-size: 1.4rem;
+    color: var(--cc-gold);
+    margin-bottom: 0.9rem;
+    display: block;
+}
+
+.cc-feature-card h3 {
+    font-family: var(--cc-font-heading);
+    font-size: 1.05rem;
+    color: var(--cc-text-light);
+    margin-bottom: 0.3rem;
+}
+
+.cc-feature-card p {
+    font-family: var(--cc-font-body);
+    font-size: 0.85rem;
+    color: var(--cc-text-light-muted);
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------
+   4. MONEY MAP — card, donut chart, insights
+----------------------------------------------------------------- */
+.cc-card {
+    background-color: #ffffff;
+    border: 1px solid var(--cc-border-dark);
+    border-radius: var(--cc-radius);
+    padding: 1.75rem;
+    box-shadow: 0 12px 30px rgba(30, 28, 24, 0.06);
+}
+
+.cc-donut {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(
+        var(--cc-donut-1, #4c9a8e) 0% 32%,
+        var(--cc-donut-2, #d3ab6a) 32% 50%,
+        var(--cc-donut-3, #5b7fbd) 50% 64%,
+        var(--cc-donut-4, #7a5aa8) 64% 76%,
+        var(--cc-donut-5, #a1384a) 76% 86%,
+        var(--cc-donut-6, #4a4a48) 86% 100%
+    );
+}
+
+.cc-donut-center {
+    width: 68%;
+    height: 68%;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.cc-donut-label {
+    font-family: var(--cc-font-body);
+    font-size: 0.6rem;
+    color: var(--cc-text-muted);
+}
+
+.cc-donut-amount {
+    font-family: var(--cc-font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cc-text-dark);
+}
+
+.cc-legend li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--cc-font-body);
+    font-size: 0.85rem;
+    color: var(--cc-text-dark);
+    padding: 0.3rem 0;
+}
+
+.cc-legend li em {
+    font-style: normal;
+    color: var(--cc-text-muted);
+}
+
+.cc-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.cc-dot-1 { background-color: #4c9a8e; }
+.cc-dot-2 { background-color: #d3ab6a; }
+.cc-dot-3 { background-color: #5b7fbd; }
+.cc-dot-4 { background-color: #7a5aa8; }
+.cc-dot-5 { background-color: #a1384a; }
+.cc-dot-6 { background-color: #4a4a48; }
+
+.cc-legend li span.cc-dot {
+    margin-right: 0.6rem;
+}
+
+.cc-legend li {
+    justify-content: flex-start;
+    gap: 0.25rem;
+}
+
+.cc-legend li em {
+    margin-left: auto;
+}
+
+.cc-insight-card {
+    background-color: var(--cc-black);
+    border-radius: var(--cc-radius);
+    padding: 1.75rem;
+    height: 100%;
+    position: relative;
+}
+
+.cc-insight-card i.bi-lightbulb {
+    color: var(--cc-gold);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.cc-insight-card h3 {
+    font-family: var(--cc-font-heading);
+    color: var(--cc-text-light);
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+}
+
+.cc-insight-card p {
+    font-family: var(--cc-font-body);
+    color: var(--cc-text-light-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.cc-insight-link {
+    color: var(--cc-gold);
+    font-size: 1rem;
+}
+
+/* -----------------------------------------------------------------
+   5. HOW IT WORKS
+----------------------------------------------------------------- */
+.cc-how {
+    position: relative;
+    background-color: var(--cc-black);
+    padding: 5.5rem 0;
+    overflow: hidden;
+}
+
+.cc-how-bg {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    border-radius: 0;
+    z-index: 0;
+}
+
+.cc-how-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(14, 13, 12, 0.95) 0%, rgba(14, 13, 12, 0.75) 100%);
+    z-index: 1;
+}
+
+.cc-how .container {
+    position: relative;
+    z-index: 2;
+}
+
+.cc-step {
+    text-align: left;
+}
+
+.cc-step-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--cc-border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.cc-step-icon i {
+    color: var(--cc-gold);
+    font-size: 1.2rem;
+}
+
+.cc-step h3 {
+    font-family: var(--cc-font-heading);
+    font-size: 1rem;
+    color: var(--cc-text-light);
+    margin-bottom: 0.4rem;
+}
+
+.cc-step p {
+    font-family: var(--cc-font-body);
+    font-size: 0.82rem;
+    color: var(--cc-text-light-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------
+   6. FINAL CTA
+----------------------------------------------------------------- */
+.cc-final-cta {
+    background-color: var(--cc-cream);
+}
+
+.cc-final-img {
+    border-radius: 0;
+    height: 100%;
+    min-height: 320px;
+}
+
+.cc-final-content {
+    padding: 5.5rem 2rem;
+    max-width: 34rem;
+    margin: 0 auto;
+}
+
+/* -----------------------------------------------------------------
+   Responsive tweaks
+----------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .cc-hero {
+        min-height: auto;
+        padding: 5rem 0 3rem;
+        text-align: left;
+    }
+
+    .cc-section,
+    .cc-vault,
+    .cc-how {
+        padding: 3.5rem 0;
+    }
+
+    .cc-final-content {
+        padding: 3.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .cc-hero-badges {
+        gap: 1rem;
+    }
+
+    .cc-feature-card {
+        padding: 1.1rem 1rem;
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .cc-btn-primary,
+    .cc-btn-outline,
+    .cc-btn-dark {
+        transition: none;
+    }
+}
