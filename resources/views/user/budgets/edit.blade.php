@@ -7,12 +7,15 @@
             @csrf @method('PUT')
             <label class="form-label">Category</label>
             <select name="category_id" class="form-select mb-3">
-                {{-- @foreach ($categories ?? [] as $category)
-                    <option value="{{ $category->id }}" @selected($budget->category_id == $category->id)>{{ $category->name }}</option>
-                @endforeach --}}
+                @foreach ($categories as $category)
+    <option value="{{ $category->id }}"
+        @selected($budget->category_id == $category->id)>
+        {{ $category->name }}
+    </option>
+@endforeach
             </select>
             <label class="form-label">Month</label>
-            <input type="month" name="month" class="form-control mb-3">
+            <input type="month"  value="{{ $budget->month }}"  name="month" class="form-control mb-3">
             <label class="form-label">Limit</label>
             <input type="number" name="limit_amount" value="{{ $budget->limit_amount }}" class="form-control">
             <button class="btn btn-primary mt-4">Update Budget</button>

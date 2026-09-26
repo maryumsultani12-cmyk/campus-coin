@@ -1,6 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\RoleMiddleware;
+use App\Http\Controllers\LoginResponse;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\BudgetController;
+
+
+
+
+//ADNIN ROUTES
+Route::get('/', function () {
+    return view('auth.login');
+});
+//BUDGET
+Route::get('/budget', [BudgetControlle::class, 'budget'])
+    ->name('budget');
+
+ Route::post('/budget', [BudgetControlle::class, 'budget'])
+    ->name('budget');
+
+//logout
+Route::post('/logout', [LoginResponse::class, 'Logout'])
+    ->name('logout');
+
 use App\Http\Controllers\AdminController;
 
 
@@ -116,6 +139,15 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
+ Route::get('/admin-role', function () {
+        return view('admin');
+    })->middleware('role:admin');
+
+    Route::get('/user-role', function () {
+        return view('user');
+    })->middleware('role:user');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

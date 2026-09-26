@@ -9,7 +9,7 @@
         </div><a href="/user/budgets/create" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Add Budget</a>
     </div>
     <div class="row g-3">
-        {{-- @forelse($budgets ?? [] as $budget)
+         @forelse($budgets ?? [] as $budget)
             <div class="col-lg-6">
                 <div class="card-box">
                     <div class="d-flex justify-content-between">
@@ -28,6 +28,6 @@
         </div>@empty<div class="col-12">
                 <div class="card-box empty">No budgets created yet.</div>
             </div>
-        @endforelse --}}
+        @endforelse
     </div>
 @endsection

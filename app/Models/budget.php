@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?php
 
 namespace App\Models;
@@ -31,3 +33,4 @@ class Budget extends Model
         return $this->belongsTo(Category::class);
     }
 }
+>>>>>>> 792ef72abe5830b024368bd11af6c89a82189853
