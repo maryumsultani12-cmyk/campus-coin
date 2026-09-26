@@ -152,11 +152,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-<<<<<<< HEAD
-// Google Authentication
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
-
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-
-=======
->>>>>>> 792ef72abe5830b024368bd11af6c89a82189853

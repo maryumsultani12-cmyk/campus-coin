@@ -1,5 +1,6 @@
-<x-action-section class="two-factor-section">
+    <link rel="stylesheet" href="{{ asset('custom-assets/css/style.css') }}">
 
+<x-action-section class="two-factor-section">
     <x-slot name="title">
         <h2 class="two-factor-title">
             {{ __('Two Factor Authentication') }}
