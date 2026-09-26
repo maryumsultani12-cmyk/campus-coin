@@ -1,4 +1,3 @@
-    <link rel="stylesheet" href="{{ asset('custom-assets/css/style.css') }}">
 
 <x-action-section class="two-factor-section">
     <x-slot name="title">
