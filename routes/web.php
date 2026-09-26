@@ -24,27 +24,6 @@ Route::get('/', function () {
 use App\Http\Controllers\AdminController;
 
 
-// ==================== ADMIN PANEL ==================== 
-
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-
-Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
-Route::get('/users/{user}', [AdminController::class, 'showUser'])->name('admin.users.show');
-Route::patch('/users/{user}/status', [AdminController::class, 'toggleUserStatus'])->name('admin.users.toggle-status');
-Route::post('/users/{user}/reset-password', [AdminController::class, 'resetUserPassword'])->name('admin.users.reset-password');
-Route::patch('/users/{user}/role', [AdminController::class, 'toggleUserRole'])->name('admin.users.toggle-role');
-
-Route::get('/categories', [AdminController::class, 'categories'])->name('admin.categories');
-Route::post('/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');
-Route::get('/categories/{category}/edit', [AdminController::class, 'editCategory'])->name('admin.categories.edit');
-Route::put('/categories/{category}', [AdminController::class, 'updateCategory'])->name('admin.categories.update');
-Route::delete('/categories/{category}', [AdminController::class, 'destroyCategory'])->name('admin.categories.destroy');
-
-Route::get('/announcements', [AdminController::class, 'announcements'])->name('admin.announcements');
-Route::post('/announcements', [AdminController::class, 'storeAnnouncement'])->name('admin.announcements.store');
-Route::get('/announcements/{announcement}/edit', [AdminController::class, 'editAnnouncement'])->name('admin.announcements.edit');
-Route::put('/announcements/{announcement}', [AdminController::class, 'updateAnnouncement'])->name('admin.announcements.update');
-Route::delete('/announcements/{announcement}', [AdminController::class, 'destroyAnnouncement'])->name('admin.announcements.destroy');
 // ==================== USER ROUTES ====================
 
 Route::get('/user/dashboard', function () {
@@ -136,6 +115,27 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
+// ==================== ADMIN PANEL ==================== 
+
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+Route::get('/users/{user}', [AdminController::class, 'showUser'])->name('admin.users.show');
+Route::patch('/users/{user}/status', [AdminController::class, 'toggleUserStatus'])->name('admin.users.toggle-status');
+Route::post('/users/{user}/reset-password', [AdminController::class, 'resetUserPassword'])->name('admin.users.reset-password');
+Route::patch('/users/{user}/role', [AdminController::class, 'toggleUserRole'])->name('admin.users.toggle-role');
+
+Route::get('/categories', [AdminController::class, 'categories'])->name('admin.categories');
+Route::post('/categories', [AdminController::class, 'storeCategory'])->name('admin.categories.store');
+Route::get('/categories/{category}/edit', [AdminController::class, 'editCategory'])->name('admin.categories.edit');
+Route::put('/categories/{category}', [AdminController::class, 'updateCategory'])->name('admin.categories.update');
+Route::delete('/categories/{category}', [AdminController::class, 'destroyCategory'])->name('admin.categories.destroy');
+
+Route::get('/announcements', [AdminController::class, 'announcements'])->name('admin.announcements');
+Route::post('/announcements', [AdminController::class, 'storeAnnouncement'])->name('admin.announcements.store');
+Route::get('/announcements/{announcement}/edit', [AdminController::class, 'editAnnouncement'])->name('admin.announcements.edit');
+Route::put('/announcements/{announcement}', [AdminController::class, 'updateAnnouncement'])->name('admin.announcements.update');
+Route::delete('/announcements/{announcement}', [AdminController::class, 'destroyAnnouncement'])->name('admin.announcements.destroy');
  Route::get('/admin-role', function () {
         return view('admin');
     })->middleware('role:admin');
@@ -147,6 +147,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    
     
 });
 

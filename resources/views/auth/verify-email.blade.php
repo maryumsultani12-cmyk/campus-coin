@@ -11,9 +11,7 @@
             </div> -->
 
             <!-- Icon -->
-            <div class="verification-icon">
-                <i class="bi bi-envelope-check"></i>
-            </div>
+           
 
             <!-- Heading -->
             <div class="verification-heading">

@@ -47,5 +47,5 @@
             class="!rounded-lg !px-6 !py-2.5 shadow-sm hover:shadow transition">
             {{ __('Save') }}
         </x-button>
-    </x-slot>c
+    </x-slot>
 </x-form-section>

@@ -1,44 +1,20 @@
 <!doctype html>
 <html lang="en" data-bs-theme="light">
-    <head>
-        <title>Title</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<<<<<<< HEAD
-        <!-- Bootstrap CSS v5.3.8 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-            crossorigin="anonymous"
-        />
-    </head>
-
-    <body>
-        <header>
-            <!-- place navbar here -->
-        </header>
-       @yield('content')
-        <footer>
-            <!-- place footer here -->
-        </footer>
-        <!-- Bootstrap JavaScript Bundle (includes Popper) -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"
-        ></script>
-    </body>
-=======
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Campus Coin administration panel">
     <title>@yield('title', 'Campus Coin Admin')</title>
-    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
-    @stack('styles')
+<link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
+      <link rel="stylesheet" href="{{ asset('custom-assets/css/style.css') }}">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+@livewireStyles
+@stack('styles')
+
 </head>
 
 <body>
@@ -73,8 +49,8 @@
                 </a>
 
                 <div class="admin-nav-title">Account</div>
-                @if (Route::has('user.profile.index'))
-                    <a href="{{ route('user.profile.index') }}">
+                @if (Route::has('profile.show'))
+                    <a href="{{ route('profile.show') }}">
                         <span class="nav-icon">◎</span><span>Profile</span>
                     </a>
                 @endif
@@ -148,11 +124,10 @@
             </footer>
         </main>
     </div>
-
     <script src="{{ asset('admin/plugins/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('admin/js/admin.js') }}"></script>
+    @livewireScripts
     @stack('scripts')
 </body>
 
->>>>>>> 792ef72abe5830b024368bd11af6c89a82189853
 </html>
