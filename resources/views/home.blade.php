@@ -22,7 +22,7 @@
                             future isn't a heist — it's a plan.
                         </p>
 
-                        <a href="#" class="btn cc-btn-primary">
+                        <a href="{{route('dashboard')}}" class="btn cc-btn-primary">
                             Enter Your Vault
                             <i class="bi bi-arrow-right"></i>
                         </a>

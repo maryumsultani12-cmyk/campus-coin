@@ -228,20 +228,22 @@
     </div>
     <script>
     function togglePassword() {
+    const password = document.getElementById('password');
+    const passwordConfirmation = document.getElementById('password_confirmation');
 
-        const password =
-            document.getElementById('password');
+    if (password.type === 'password') {
+        password.type = 'text';
 
-        if (password.type === 'password') {
-
-            password.type = 'text';
-
-        } else {
-
-            password.type = 'password';
-
+        if (passwordConfirmation) {
+            passwordConfirmation.type = 'text';
         }
+    } else {
+        password.type = 'password';
 
+        if (passwordConfirmation) {
+            passwordConfirmation.type = 'password';
+        }
     }
+}
     </script>
 </x-guest-layout>

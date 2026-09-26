@@ -1,10 +1,10 @@
 <x-form-section submit="updatePassword">
     <x-slot name="title">
-        <h2 class="text-lg font-semibold text-gray-900">{{ __('Update Password') }}</h2>
+        <h2 class="two-factor-title text-gray-900">{{ __('Update Password') }}</h2>
     </x-slot>
 
     <x-slot name="description">
-        <p class="text-sm text-gray-500">
+        <p class="two-factor-description text-sm text-gray-500">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </x-slot>
@@ -47,5 +47,5 @@
             class="!rounded-lg !px-6 !py-2.5 shadow-sm hover:shadow transition">
             {{ __('Save') }}
         </x-button>
-    </x-slot>
+    </x-slot>c
 </x-form-section>

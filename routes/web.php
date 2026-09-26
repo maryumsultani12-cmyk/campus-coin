@@ -4,32 +4,29 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\LoginResponse;
 use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\BudgetController;
 
 
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 
 //ADNIN ROUTES
 Route::get('/', function () {
     return view('auth.login');
 });
-//BUDGET
-Route::get('/budget', [BudgetControlle::class, 'budget'])
-    ->name('budget');
 
- Route::post('/budget', [BudgetControlle::class, 'budget'])
-    ->name('budget');
 
 //logout
-Route::post('/logout', [LoginResponse::class, 'Logout'])
-    ->name('logout');
+// Route::post('/logout', [LoginResponse::class, 'Logout'])
+//     ->name('logout');
 
 use App\Http\Controllers\AdminController;
 
 
 // ==================== ADMIN PANEL ==================== 
 
-// Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home');
 
 Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
@@ -144,8 +141,8 @@ Route::middleware([
         return view('admin');
     })->middleware('role:admin');
 
-    Route::get('/user-role', function () {
-        return view('user');
+    Route::get('/dashboard', function () {
+        return view('admin.users.index');
     })->middleware('role:user');
 
     Route::get('/dashboard', function () {
@@ -158,5 +155,3 @@ Route::middleware([
 Route::get('/', function () {
     return view('home');
 });
-
-

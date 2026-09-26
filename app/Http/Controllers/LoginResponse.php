@@ -13,11 +13,11 @@ class LoginResponse implements LoginResponseContract
 
    $user = $request->user();
     if (strtolower($user->role) === 'admin') {
-                return redirect('/admin');
+                return redirect('/admin/dashboard');
             }
 
             if(strtolower($user->role) === 'user') {
-                return redirect('/user');
+                return redirect('/user/dashboard');
             }
                 return redirect('/login');
  }

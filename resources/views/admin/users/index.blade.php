@@ -5,12 +5,12 @@
     <div><h1>User Management</h1><p>View, disable and manage registered Campus Coin users.</p></div>
 </div>
 
-<div class="admin-grid admin-grid-4" style="margin-bottom:16px;">
-    <div class="admin-card stat-card"><div class="stat-icon stat-blue">U</div><div><span class="stat-label">Total Users</span><h2 class="stat-value">{{ $stats['total'] }}</h2></div></div>
+<!-- <div class="admin-grid admin-grid-4" style="margin-bottom:16px;">
+    <!-- <div class="admin-card stat-card"><div class="stat-icon stat-blue">U</div><div><span class="stat-label">Total Users</span><h2 class="stat-value">{{ $stats['total'] }}</h2></div></div>
     <div class="admin-card stat-card"><div class="stat-icon stat-green">A</div><div><span class="stat-label">Active</span><h2 class="stat-value">{{ $stats['active'] }}</h2></div></div>
     <div class="admin-card stat-card"><div class="stat-icon stat-orange">D</div><div><span class="stat-label">Disabled</span><h2 class="stat-value">{{ $stats['disabled'] }}</h2></div></div>
-    <div class="admin-card stat-card"><div class="stat-icon stat-purple">R</div><div><span class="stat-label">Administrators</span><h2 class="stat-value">{{ $stats['admins'] }}</h2></div></div>
-</div>
+    <div class="admin-card stat-card"><div class="stat-icon stat-purple">R</div><div><span class="stat-label">Administrators</span><h2 class="stat-value">{{ $stats['admins'] }}</h2></div></div> -->
+</div> -->
 
 <div class="admin-card">
     <div class="admin-card-header"><h2>Registered Users</h2></div>

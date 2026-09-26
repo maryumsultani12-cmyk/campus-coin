@@ -1,10 +1,10 @@
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        <h2 class="text-lg font-semibold text-gray-900">Profile information</h2>
+        <h2 class="two-factor-title">Profile information</h2>
     </x-slot>
 
     <x-slot name="description">
-        <p class="text-sm text-gray-500">Update your account's profile information and email address.</p>
+        <p class="text-sm  two-factor-description text-gray-500">Update your account's profile information and email address.</p>
     </x-slot>
 
     <x-slot name="form">
