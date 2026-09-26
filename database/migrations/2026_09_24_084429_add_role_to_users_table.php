@@ -10,21 +10,19 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('transactions', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('user_id');
-        $table->foreignId('category_id');
-        $table->decimal('amount', 10, 2)->nullable();
-        $table->string('type')->nullable();
-        $table->timestamps();
-    });
-}
+    {
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
+    }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
