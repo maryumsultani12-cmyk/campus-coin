@@ -27,7 +27,6 @@ use App\Http\Controllers\AdminController;
 // ==================== ADMIN PANEL ==================== 
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home');
 
 Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
 Route::get('/users/{user}', [AdminController::class, 'showUser'])->name('admin.users.show');
@@ -148,6 +147,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    
 });
 
 // visitor-side

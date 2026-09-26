@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        <p class="text-sm  two-factor-description text-gray-500">Update your account's profile information and email address.</p>
+        <p class="text-sm two-factor-description text-gray-500">Update your account's profile information and email address.</p>
     </x-slot>
 
     <x-slot name="form">

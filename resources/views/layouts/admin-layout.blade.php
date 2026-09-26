@@ -73,8 +73,8 @@
                 </a>
 
                 <div class="admin-nav-title">Account</div>
-                @if (Route::has('profile.show'))
-                    <a href="{{ route('profile.show') }}">
+                @if (Route::has('user.profile.index'))
+                    <a href="{{ route('user.profile.index') }}">
                         <span class="nav-icon">◎</span><span>Profile</span>
                     </a>
                 @endif
